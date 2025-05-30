@@ -7,7 +7,9 @@ from pyspark.sql.types import IntegerType
 
 @dlt.table(name=GOLD_DLT_TABLES["obic_プロジェクトリスト"])
 def silver():
-   return(
-      spark.read.table(SILVER_DLT_TABLES["obic_プロジェクトリスト"])
-      .withColumn("登録日", to_date(col("登録日"), "yyyy-MM-dd"))
-   )
+      return spark.sql(f"""
+        SELECT
+            TO_DATE(`登録日`, 'yyyy-MM-dd') AS `登録日_date`
+        FROM {SILVER_DLT_TABLES["obic_プロジェクトリスト"]}
+    """)
+   
