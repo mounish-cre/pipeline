@@ -1,25 +1,137 @@
-# dltnames.py
 from pipeline.catalog import *
 
 def bronze_table(name: str) -> str:
-    return f"{catalog}.bronze.`{name}`" if not name.isidentifier() else f"{catalog}.bronze.{name}"
+    return f"{catalog}.bronze.`{name}`" 
 
 def silver_table(name: str) -> str:
-    return f"{catalog}.silver.{name}"
+    return f"{catalog}.silver.`{name}`"
 
 def gold_table(name: str) -> str:
-    return f"{catalog}.gold.{name}"
+    return f"{catalog}.gold.`{name}`"
 
 # Optional: predefined table names
 BRONZE_DLT_TABLES = {
     "obic_プロジェクトリスト": bronze_table("obic_プロジェクトリスト"),
-    "orders": bronze_table("orders")
+    "orders": bronze_table("orders"),
+    "obic_契約明細リスト": bronze_table("obic_契約明細リスト"),
+    "obic_Jobリスト": bronze_table("obic_Jobリスト"),
+    "仮想プロジェクトリスト": bronze_table("仮想プロジェクトリスト"),
+    "obic_要員管理日報実績対比データ": bronze_table("obic_要員管理日報実績対比データ"),
+    "obic_スケジュールリスト": bronze_table("obic_スケジュールリスト"),
+    "obic_法人マスタリスト": bronze_table("obic_法人マスタリスト"),
+    "obic_支払先マスタリスト": bronze_table("obic_支払先マスタリスト"),
+    "obic_仕入先マスタリスト": bronze_table("obic_仕入先マスタリスト"),
+    "obic_請求先マスタリスト": bronze_table("obic_請求先マスタリスト"),
+    "obic_得意先マスタリスト": bronze_table("obic_得意先マスタリスト"),
+    "bplk_ikkatsu_keiyaku_daichou_export": bronze_table("bplk_ikkatsu_keiyaku_daichou_export"),
+    "bplk_ikkatsu_keiyaku_daityou_zisseki": bronze_table("bplk_ikkatsu_keiyaku_daityou_zisseki"),
+    "bplk_m_kyouryoku_kaisha_youin_rireki": bronze_table("bplk_m_kyouryoku_kaisha_youin_rireki"),
+    "bplk_getsuji_jisseki_sagyou": bronze_table("bplk_getsuji_jisseki_sagyou"),
+    "mzrc_案件一覧": bronze_table("mzrc_案件一覧"),
+    "obic_予算リスト": bronze_table("obic_予算リスト"),
+    "obic_プロジェクト収支表": bronze_table("obic_プロジェクト収支表"),
+    "obic_原価元帳": bronze_table("obic_原価元帳"),
+    "obic_委託仕入リスト": bronze_table("obic_委託仕入リスト"),
+    "obic_日報リスト": bronze_table("obic_日報リスト"),
+    "obic_日報集計表": bronze_table("obic_日報集計表"),
+    "obic_部署マスタリスト": bronze_table("obic_部署マスタリスト"),
+    "部署グループマスタ１リスト": bronze_table("部署グループマスタ１リスト"),
+    "部署グループマスタ２リスト": bronze_table("部署グループマスタ２リスト"),
+    "部署グループマスタ３リスト": bronze_table("部署グループマスタ３リスト"),
+    "obic_セグメントマスタリスト": bronze_table("obic_セグメントマスタリスト"),
+    "obic_原価要素マスタリスト": bronze_table("obic_原価要素マスタリスト"),
+    "obic_売上科目マスタリスト": bronze_table("obic_売上科目マスタリスト"),
+    "obic_原価科目マスタリスト": bronze_table("obic_原価科目マスタリスト"),
+    "obic_実績データ": bronze_table("obic_実績データ"),
+    "obic_予算データ": bronze_table("obic_予算データ"),
+    "eyes_MAP01_OPP_DM3": bronze_table("eyes_MAP01_OPP_DM3"),
+    "eyes_MAP02_BASED_DM3": bronze_table("eyes_MAP02_BASED_DM3"),
+    "eyes_MAP03_MM_COST3": bronze_table("eyes_MAP03_MM_COST3"),
+    "eyes_MAP04_PJINF_MHC": bronze_table("eyes_MAP04_PJINF_MHC"),
+    "eyes_待機要員一覧_コスト": bronze_table("eyes_待機要員一覧_コスト"),
+    "eyes_待機要員一覧_工数": bronze_table("eyes_待機要員一覧_工数")
 }
 
 SILVER_DLT_TABLES = {
-    "segment_master": silver_table("segment_master")
+    "obic_プロジェクトリスト": silver_table("obic_プロジェクトリスト"),
+    "orders": silver_table("orders"),
+    "obic_契約明細リスト": silver_table("obic_契約明細リスト"),
+    "obic_Jobリスト": silver_table("obic_Jobリスト"),
+    "仮想プロジェクトリスト": silver_table("仮想プロジェクトリスト"),
+    "obic_要員管理日報実績対比データ": silver_table("obic_要員管理日報実績対比データ"),
+    "obic_スケジュールリスト": silver_table("obic_スケジュールリスト"),
+    "obic_法人マスタリスト": silver_table("obic_法人マスタリスト"),
+    "obic_支払先マスタリスト": silver_table("obic_支払先マスタリスト"),
+    "obic_仕入先マスタリスト": silver_table("obic_仕入先マスタリスト"),
+    "obic_請求先マスタリスト": silver_table("obic_請求先マスタリスト"),
+    "obic_得意先マスタリスト": silver_table("obic_得意先マスタリスト"),
+    "bplk_ikkatsu_keiyaku_daichou_export": silver_table("bplk_ikkatsu_keiyaku_daichou_export"),
+    "bplk_ikkatsu_keiyaku_daityou_zisseki": silver_table("bplk_ikkatsu_keiyaku_daityou_zisseki"),
+    "bplk_m_kyouryoku_kaisha_youin_rireki": silver_table("bplk_m_kyouryoku_kaisha_youin_rireki"),
+    "bplk_getsuji_jisseki_sagyou": silver_table("bplk_getsuji_jisseki_sagyou"),
+    "mzrc_案件一覧": silver_table("mzrc_案件一覧"),
+    "obic_予算リスト": silver_table("obic_予算リスト"),
+    "obic_プロジェクト収支表": silver_table("obic_プロジェクト収支表"),
+    "obic_原価元帳": silver_table("obic_原価元帳"),
+    "obic_委託仕入リスト": silver_table("obic_委託仕入リスト"),
+    "obic_日報リスト": silver_table("obic_日報リスト"),
+    "obic_日報集計表": silver_table("obic_日報集計表"),
+    "obic_部署マスタリスト": silver_table("obic_部署マスタリスト"),
+    "部署グループマスタ１リスト": silver_table("部署グループマスタ１リスト"),
+    "部署グループマスタ２リスト": silver_table("部署グループマスタ２リスト"),
+    "部署グループマスタ３リスト": silver_table("部署グループマスタ３リスト"),
+    "obic_セグメントマスタリスト": silver_table("obic_セグメントマスタリスト"),
+    "obic_原価要素マスタリスト": silver_table("obic_原価要素マスタリスト"),
+    "obic_売上科目マスタリスト": silver_table("obic_売上科目マスタリスト"),
+    "obic_原価科目マスタリスト": silver_table("obic_原価科目マスタリスト"),
+    "obic_実績データ": silver_table("obic_実績データ"),
+    "obic_予算データ": silver_table("obic_予算データ"),
+    "eyes_MAP01_OPP_DM3": silver_table("eyes_MAP01_OPP_DM3"),
+    "eyes_MAP02_BASED_DM3": silver_table("eyes_MAP02_BASED_DM3"),
+    "eyes_MAP03_MM_COST3": silver_table("eyes_MAP03_MM_COST3"),
+    "eyes_MAP04_PJINF_MHC": silver_table("eyes_MAP04_PJINF_MHC"),
+    "eyes_待機要員一覧_コスト": silver_table("eyes_待機要員一覧_コスト"),
+    "eyes_待機要員一覧_工数": silver_table("eyes_待機要員一覧_工数")
 }
 
 GOLD_DLT_TABLES = {
-    "segment_master": gold_table("segment_master")
+   "obic_プロジェクトリスト": gold_table("obic_プロジェクトリスト"),
+    "orders": gold_table("orders"),
+    "obic_契約明細リスト": gold_table("obic_契約明細リスト"),
+    "obic_Jobリスト": gold_table("obic_Jobリスト"),
+    "仮想プロジェクトリスト": gold_table("仮想プロジェクトリスト"),
+    "obic_要員管理日報実績対比データ": gold_table("obic_要員管理日報実績対比データ"),
+    "obic_スケジュールリスト": gold_table("obic_スケジュールリスト"),
+    "obic_法人マスタリスト": gold_table("obic_法人マスタリスト"),
+    "obic_支払先マスタリスト": gold_table("obic_支払先マスタリスト"),
+    "obic_仕入先マスタリスト": gold_table("obic_仕入先マスタリスト"),
+    "obic_請求先マスタリスト": gold_table("obic_請求先マスタリスト"),
+    "obic_得意先マスタリスト": gold_table("obic_得意先マスタリスト"),
+    "bplk_ikkatsu_keiyaku_daichou_export": gold_table("bplk_ikkatsu_keiyaku_daichou_export"),
+    "bplk_ikkatsu_keiyaku_daityou_zisseki": gold_table("bplk_ikkatsu_keiyaku_daityou_zisseki"),
+    "bplk_m_kyouryoku_kaisha_youin_rireki": gold_table("bplk_m_kyouryoku_kaisha_youin_rireki"),
+    "bplk_getsuji_jisseki_sagyou": gold_table("bplk_getsuji_jisseki_sagyou"),
+    "mzrc_案件一覧": gold_table("mzrc_案件一覧"),
+    "obic_予算リスト": gold_table("obic_予算リスト"),
+    "obic_プロジェクト収支表": gold_table("obic_プロジェクト収支表"),
+    "obic_原価元帳": gold_table("obic_原価元帳"),
+    "obic_委託仕入リスト": gold_table("obic_委託仕入リスト"),
+    "obic_日報リスト": gold_table("obic_日報リスト"),
+    "obic_日報集計表": gold_table("obic_日報集計表"),
+    "obic_部署マスタリスト": gold_table("obic_部署マスタリスト"),
+    "部署グループマスタ１リスト": gold_table("部署グループマスタ１リスト"),
+    "部署グループマスタ２リスト": gold_table("部署グループマスタ２リスト"),
+    "部署グループマスタ３リスト": gold_table("部署グループマスタ３リスト"),
+    "obic_セグメントマスタリスト": gold_table("obic_セグメントマスタリスト"),
+    "obic_原価要素マスタリスト": gold_table("obic_原価要素マスタリスト"),
+    "obic_売上科目マスタリスト": gold_table("obic_売上科目マスタリスト"),
+    "obic_原価科目マスタリスト": gold_table("obic_原価科目マスタリスト"),
+    "obic_実績データ": gold_table("obic_実績データ"),
+    "obic_予算データ": gold_table("obic_予算データ"),
+    "eyes_MAP01_OPP_DM3": gold_table("eyes_MAP01_OPP_DM3"),
+    "eyes_MAP02_BASED_DM3": gold_table("eyes_MAP02_BASED_DM3"),
+    "eyes_MAP03_MM_COST3": gold_table("eyes_MAP03_MM_COST3"),
+    "eyes_MAP04_PJINF_MHC": gold_table("eyes_MAP04_PJINF_MHC"),
+    "eyes_待機要員一覧_コスト": gold_table("eyes_待機要員一覧_コスト"),
+    "eyes_待機要員一覧_工数": gold_table("eyes_待機要員一覧_工数")
 }
