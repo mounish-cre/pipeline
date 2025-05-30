@@ -7,6 +7,7 @@ from pipeline.schemas import *
 @dlt.table(name=BRONZE_DLT_TABLES["eyes_MAP01_OPP_DM3"])
 def bronze1():
     return read_bronze_stream(
+        spark,
         file_subdir="eyes_MAP01_OPP_DM3",
         encoding="Shift-JIS",
         schema=schemas["eyes_MAP01_OPP_DM3"],

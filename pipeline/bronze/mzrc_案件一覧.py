@@ -7,6 +7,7 @@ from pipeline.schemas import *
 @dlt.table(name=BRONZE_DLT_TABLES["mzrc_案件一覧"])
 def bronze1():
     return read_bronze_stream(
+        spark,
         file_subdir="mzrc_案件一覧",
         encoding="Shift-JIS",
         schema=schemas["mzrc_案件一覧"],

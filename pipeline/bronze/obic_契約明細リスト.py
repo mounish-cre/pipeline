@@ -7,6 +7,7 @@ from pipeline.schemas import *
 @dlt.table(name=BRONZE_DLT_TABLES["obic_契約明細リスト"])
 def bronze1():
     return read_bronze_stream(
+        spark,
         file_subdir="obic_契約明細リスト",
         encoding="Shift-JIS",
         schema=schemas["obic_契約明細リスト"],
